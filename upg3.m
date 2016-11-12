@@ -15,7 +15,7 @@ plot(y(1,:),y(2,:));
 
 % Part 3: Change initial conditions
 figure(3);
-y0 = [10 ; 1];
+y0 = [10 ; 1];s
 [t,y] = adaptiveRK34(f,y0,t0,tf,tol);
 plot(t,y);
 
