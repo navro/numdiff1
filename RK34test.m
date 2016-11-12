@@ -3,7 +3,7 @@ f = @(t, y) y;
 t0 = 0;
 tf = 1;
 y0 = 1;
-tol = 0.00000000001;
+tol = 1E-11;
 
 [t, y] = adaptiveRK34(f, y0, t0, tf, tol);
 

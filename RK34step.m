@@ -10,4 +10,3 @@ unew = uold + h./6 * (yp1 + 2.*yp2 + 2.*yp3 + yp4);
 err = h./6 * (2.*yp2 + zp3 - 2.*yp3 - yp4);
 
 end
-
