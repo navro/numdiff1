@@ -7,20 +7,31 @@ span = [0, 2.*mu];
 
 figure(1);
 plot(tout, yout(:,2));
-
+xlabel('Tid');
+ylabel('y_2');
 
 figure(2);
 hold on 
-p1 = plot(yout(:,1), yout(:,2), 'LineWidth', 2);
+p1 = plot(yout(:,1), yout(:,2), 'b');
+xlabel('y_1');
+ylabel('y_2');
 
 % Checking with different initial values
-u0 = [4; 8];
-span = [0, 50.*mu];
-[tout, yout] = ode15s(fun, span, u0);
-p2 = plot(yout(:,1), yout(:,2), 'g');
+u0 = [4; 20];
+span = [0, 10.*mu];
+[~, yout] = ode15s(fun, span, u0);
+p2 = plot(yout(:,1), yout(:,2), 'r');
+
+% Changing initial value again
+u0 = [-1; 30];
+span = [0, 4.*mu];
+[~, yout] = ode15s(fun, span, u0);
+p3 = plot(yout(:,1), yout(:,2), 'g');
 
 % Display p1 on top
 uistack(p1, 'top');
+l = legend('$y_0 = [4; 20]$', '$y_0 = [-2; 0]$', '$y_0 = [2; 0]$', 'Location', 'NorthWest');
+set(l, 'Interpreter', 'latex');
 
 %% Task 4.2 & 4.3
 mu = [10; 15; 22; 33; 47; 68; 100; 150; 220 ; 330 ; 470 ; 680; 1000];
@@ -38,7 +49,7 @@ for k= 1:length(mu)
 end
 
 % Fit to a power function
-f = fit(mu,R','power1');
+f = fit(mu,R','power1')
 int = mu(1):1:mu(end);
 
 figure(3);
