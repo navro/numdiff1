@@ -8,15 +8,15 @@ y = y0;
 t = t0;
 
 while t(end) < tf
-    [~, err] = RK34step(f, uold, t(:,end), hold);
+    [~, err] = RK34step(f, uold, t(end), hold);
     hold = newstep(tol, err, errold, hold, 4);
-    [uold, errold] = RK34step(f, uold, t(:,end), hold);
+    [uold, errold] = RK34step(f, uold, t(end), hold);
     y = [y uold];
     t = [t (t(end) + hold)];
 end
 
-h = tf - t(:, end - 1);
-y(:,end) = RK34step(f, y(:, end - 1), t(:,end), h);
-t(:,end) = tf;
+h = tf - t(end - 1);
+y(:,end) = RK34step(f, y(:, end - 1), t(end), h);
+t(end) = tf;
 
 end

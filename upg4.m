@@ -8,15 +8,19 @@ span = [0, 2.*mu];
 figure(1);
 plot(tout, yout(:,2));
 
+
 figure(2);
 hold on 
-plot(yout(:,1), yout(:,2));
+p1 = plot(yout(:,1), yout(:,2), 'LineWidth', 2);
 
 % Checking with different initial values
 u0 = [4; 8];
 span = [0, 50.*mu];
 [tout, yout] = ode15s(fun, span, u0);
-plot(yout(:,1), yout(:,2), 'g');
+p2 = plot(yout(:,1), yout(:,2), 'g');
+
+% Display p1 on top
+uistack(p1, 'top');
 
 %% Task 4.2 & 4.3
 mu = [10; 15; 22; 33; 47; 68; 100; 150; 220 ; 330 ; 470 ; 680; 1000];

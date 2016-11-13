@@ -9,5 +9,5 @@ tol = 1E-11;
 
 figure(1);
 hold on;
-plot(t,y,'b');  % Blue is explicit RK4
+plot(t,y,'b');  % Blue is adaptive RK34
 plot(0:0.001:1,exp(0:0.001:1),'g'); % Green is exp(x)

@@ -17,8 +17,7 @@ p1 = plot(x,y,'b');  % Blue is explicit RK4
 p2 = plot(0:0.001:1,exp(0:0.001:1),'g'); % Green is exp(x)
 xlabel('t');
 ylabel('y');
-l = legend([p1,p2], 'Losning till $\dot{y}=y$ med RK4', 'y = exp(\it{t})', 'Location', 'NorthWest');
-set(l, 'Interpreter', 'latex');
+legend([p1,+2], 'Lösning med explicit RK4'
 
 % Global error loglog
 lambda = 3;

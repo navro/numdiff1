@@ -11,7 +11,8 @@ for i=1:length(j)
 end
 
 % Fit to a exponential function
-f = fit(hs(1:end-4)',vals(1:end-4)','power1')
+f = fit(hs(1:end-4)',vals(1:end-4)','power1');
+[~,b] = coeffvalues(f);
 int = hs(end):0.0001:hs(1);
 
 figure(37);
@@ -21,6 +22,6 @@ grid on;
 p2 = loglog(int,feval(f,int));
 xlabel('Stegstorlek');
 ylabel('Globalt fel');
-legend([p1,p2], 'Fel', '\it{C \cdot h^4}','Interpreter','Tex','Location','NorthWest');
+legend([p1,p2], 'Fel', sprintf('C  h^{%d}', ,'Interpreter','Tex','Location','NorthWest');
 
 end
